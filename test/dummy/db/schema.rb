@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_03_14_210832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "integreat_apps", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "webhook_url"
+    t.string "webhook_secret"
+    t.string "secret"
+    t.text "webhook_events", default: [], array: true
+    t.text "api_scopes", default: [], array: true
+    t.string "entry_url"
+    t.integer "state", default: 0
+    t.integer "availability", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["secret"], name: "index_integreat_apps_on_secret", unique: true
+  end
+
+  create_table "integreat_installations", force: :cascade do |t|
+    t.integer "account_id"
+    t.string "account_type"
+    t.integer "app_id"
+    t.string "secret"
+    t.text "authorized_webhook_events", default: [], array: true
+    t.text "authorized_api_scopes", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["secret"], name: "index_integreat_installations_on_secret", unique: true
+  end
 
 end

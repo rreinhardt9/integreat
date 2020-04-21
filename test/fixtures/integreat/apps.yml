@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  webhook_url: MyString
+  webhook_secret: MyString
+  secret: 
+  webhook_events: MyText
+  api_scopes: MyText
+  auth_url: MyString
+  setup_url: MyString
+  state: 1
+  availability: 1
+
+two:
+  name: MyString
+  description: MyText
+  webhook_url: MyString
+  webhook_secret: MyString
+  secret: 
+  webhook_events: MyText
+  api_scopes: MyText
+  auth_url: MyString
+  setup_url: MyString
+  state: 1
+  availability: 1
